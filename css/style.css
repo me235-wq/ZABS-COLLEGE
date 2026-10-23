@@ -54,11 +54,13 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 700; lin
 .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 .section { padding: 100px 0; }
 .section-header { text-align: center; margin-bottom: 60px; }
-.section-label { display: inline-block; font-family: var(--font-heading); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--royal); margin-bottom: 12px; position: relative; padding-left: 40px; }
-.section-label::before { content: ''; position: absolute; left: 0; top: 50%; width: 28px; height: 2px; background: var(--gold); }
-.section-header .section-label { padding-left: 0; padding-right: 40px; }
-.section-header .section-label::before { left: auto; right: calc(50% + 60px); }
-.section-header .section-label::after { content: ''; position: absolute; right: 0; top: 50%; width: 28px; height: 2px; background: var(--gold); }
+
+/* Fixed section label lines styling */
+.section-label { display: inline-flex; align-items: center; gap: 12px; font-family: var(--font-heading); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--royal); margin-bottom: 12px; }
+.section-label::before { content: ''; display: inline-block; width: 28px; height: 2px; background: var(--gold); flex-shrink: 0; }
+.section-header .section-label { display: inline-flex; align-items: center; justify-content: center; }
+.section-header .section-label::after { content: ''; display: inline-block; width: 28px; height: 2px; background: var(--gold); flex-shrink: 0; }
+
 .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 16px; color: var(--charcoal); }
 .section-desc { font-size: 1.1rem; color: var(--text-secondary); max-width: 640px; margin: 0 auto; line-height: 1.8; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--font-heading); font-weight: 600; font-size: 0.95rem; padding: 14px 28px; border-radius: var(--radius-sm); border: 2px solid transparent; cursor: pointer; transition: var(--transition); white-space: nowrap; }
@@ -155,7 +157,7 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 700; lin
 .why-choose { background: var(--navy); color: #FFFFFF; position: relative; overflow: hidden; }
 .why-choose::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(29, 78, 216, 0.15) 0%, transparent 70%); border-radius: 50%; }
 .why-choose .section-label { color: var(--gold); }
-.why-choose .section-label::before, .why-choose .section-header .section-label::after { background: var(--gold); }
+.why-choose .section-label::before { background: var(--gold); }
 .why-choose .section-title { color: #FFFFFF; }
 .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; position: relative; z-index: 1; }
 .feature-card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-md); padding: 36px 28px; transition: var(--transition); }
