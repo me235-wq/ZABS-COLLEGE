@@ -123,7 +123,7 @@
         const items = document.querySelectorAll('.gallery-item');
         galleryImages = Array.from(items).map(function(item) {
             const img = item.querySelector('img');
-            return { src: img ? img.src : '', alt: img ? img.alt : 'Gallery image' };
+            return { src: img ? (img.dataset.full || img.currentSrc || img.src) : '', alt: img ? img.alt : 'Gallery image' };
         });
         items.forEach(function(item, index) {
             item.addEventListener('click', function() { openLightbox(index); });
